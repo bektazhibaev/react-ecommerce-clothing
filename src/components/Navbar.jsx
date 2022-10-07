@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import SearchIcon from '@mui/icons-material/Search';
+import Badge from '@mui/material/Badge';
+// import { MenuItem } from '@mui/material';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 const Container = styled.div`
 `
@@ -42,12 +45,21 @@ const Center = styled.div`
   `
 
 const Logo = styled.h1`
-  font-weight: bold;
+  font-weight: bolder;
 `
 
 const Right = styled.div`
   flex: 1;
   /* width: 33.3%; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`
+
+const MenuItem = styled.div`
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 25px;
 `
 
 const Navbar = () => {
@@ -60,13 +72,21 @@ const Navbar = () => {
           </Language>
           <SearchContainer>
             <Input />
-            <SearchIcon />
+            <SearchIcon style={{ color: 'gray', fontSize: 16 }} />
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>BAHA_</Logo>
+          <Logo>MARIA USON</Logo>
         </Center>
-        <Right>Right</Right>
+        <Right>
+          <MenuItem>REGISTER</MenuItem>
+          <MenuItem>SIGN IN</MenuItem>
+          <MenuItem>
+            <Badge badgeContent={2} color="primary">
+              <ShoppingCartOutlinedIcon />
+            </Badge>
+          </MenuItem>
+        </Right>
       </Wrapper>
     </Container>
   )
