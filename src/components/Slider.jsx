@@ -13,7 +13,8 @@ const Container = styled.div`
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
-  transform: translateX(0vw);
+  transition: all 1s ease;
+  transform: translateX(${(props) => props.slideIndex * -100}vw);
 `
 
 const Slide = styled.div`
@@ -69,8 +70,14 @@ const Arrow = styled.div`
   left: ${props => props.direction === 'left' && '10px'};
   right: ${props => props.direction === 'right' && '10px'};
   cursor: pointer;
-  opacity: 0.5;
   z-index: 2;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    background-color: #ffc400;
+  }
 `
 
 const Slider = () => {
@@ -78,7 +85,11 @@ const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const handleClick = (direction) => {
-
+    if (direction === 'left') {
+      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : sliderItems.length - 1)
+    } else {
+      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0)
+    }
   }
 
   return (
@@ -86,10 +97,10 @@ const Slider = () => {
       <Arrow direction='left' onClick={() => handleClick('left')}>
         <ArrowLeftOutlined />
       </Arrow>
-      <Wrapper>
+      <Wrapper slideIndex={slideIndex}>
         {
           sliderItems.map((item) => (
-            <Slide bg={item.bg}>
+            <Slide bg={item.bg} key={item.id}>
               <ImgContainer>
                 <Image src={item.img} />
               </ImgContainer>
