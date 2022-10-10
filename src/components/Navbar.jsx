@@ -76,7 +76,7 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>MARIA USON</Logo>
+          <Logo>ORUK</Logo>
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>
