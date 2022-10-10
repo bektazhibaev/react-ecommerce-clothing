@@ -12,6 +12,7 @@ const Container = styled.div`
 `
 const Left = styled.div`
   flex: 1;
+  margin-left: 20px;
 `
 const Center = styled.div`
   flex: 1;
