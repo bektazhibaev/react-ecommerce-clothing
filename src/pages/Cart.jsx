@@ -8,6 +8,7 @@ const Container = styled.div``;
 
 const Wrapper = styled.div`
   padding: 20px;
+  margin-bottom: 30px;
 `;
 
 const Title = styled.h1`
@@ -111,6 +112,7 @@ const Hr = styled.hr`
   background-color: #eee;
   border: none;
   height: 1px;
+  margin-bottom: ${props => props?.bottom};
 `;
 
 const Summary = styled.div`
@@ -237,6 +239,7 @@ const Cart = () => {
           </Summary>
         </Bottom>
       </Wrapper>
+      <Hr bottom='30px' />
       <Footer />
     </Container>
   );
